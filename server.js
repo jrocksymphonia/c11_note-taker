@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 //middleware that connects front-end files
 app.use(express.static('public'));
 
-
 //HTML Routes
 // GET Route for startup page
 app.get('*', (req, res) =>
