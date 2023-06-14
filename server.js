@@ -9,6 +9,7 @@ const app = express();
 //express middlewareeeee
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api', api);
 
 //middleware that connects front-end files
 app.use(express.static('public'));
