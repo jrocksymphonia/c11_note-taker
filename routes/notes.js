@@ -22,10 +22,28 @@ notes.get('/api/notes', (req, res) => {
 // POST Request for notes db
 notes.post('/api/notes', (req, res) => {
     // Inform the client that their POST request was received
-    console.log(req.body);
-    // res.json(`${req.method} request received to add a review`);
-  
-    // // Log our request to the terminal
-    // console.info(`${req.method} request received to add a review`);
+    const { title, text } = req.body;
+
+    if (title && text) {
+        // Variable for the object we will save
+        const newNote = {
+          title,
+          text,
+          note_id: uuidv4(),
+        };
+    
+        readAndAppend(newNote, './db/db.json');
+    
+        const response = {
+          status: 'success',
+          body: newNote,
+        };
+    
+        res.json(response);
+      } else {
+        res.json('Error in posting note');
+      }
 });
 //*******************************
+
+module.exports = notes;
