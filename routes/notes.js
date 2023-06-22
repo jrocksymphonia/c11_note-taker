@@ -1,4 +1,8 @@
 const notes = require('express').Router();
+
+//require a unique id for each new note
+const { v4: uuidv4 } = require('uuid'); 
+
 const {
     readFromFile,
     readAndAppend,
@@ -9,7 +13,7 @@ const {
 
 
 //API Routes
-// GET Route for notes db
+// GET Route for retrieving all notes db
 notes.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 })
@@ -18,9 +22,10 @@ notes.get('/api/notes', (req, res) => {
 // POST Request for notes db
 notes.post('/api/notes', (req, res) => {
     // Inform the client that their POST request was received
-    res.json(`${req.method} request received to add a review`);
+    console.log(req.body);
+    // res.json(`${req.method} request received to add a review`);
   
-    // Log our request to the terminal
-    console.info(`${req.method} request received to add a review`);
+    // // Log our request to the terminal
+    // console.info(`${req.method} request received to add a review`);
 });
 //*******************************
