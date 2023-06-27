@@ -14,7 +14,7 @@ const {
 
 //API Routes
 // GET Route for retrieving all notes db
-notes.get('/api/notes', (req, res) => {
+notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 })
 
