@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-Heroku live app link: 
+Heroku live app link: https://c11-note-taker-6d33c42625b2.herokuapp.com/
 
 
 ## Credits
